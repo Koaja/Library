@@ -10,6 +10,10 @@ public class Book extends Author {
 
 	}
 
+	public Book() {
+
+	}
+
 	public void setBookTitle(String bookTitle) {
 		this.bookTitle = bookTitle;
 	}
@@ -19,7 +23,7 @@ public class Book extends Author {
 	}
 
 	public String toString() {
-		return super.toString() + " - " + this.bookTitle;
+		return super.toString() + " - " + getBookTitle();
 	}
 
 }

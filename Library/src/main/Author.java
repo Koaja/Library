@@ -8,6 +8,10 @@ public class Author {
 		this.authorName = authorName;
 	}
 
+	public Author() {
+
+	}
+
 	public void setName(String authorName) {
 		this.authorName = authorName;
 	}

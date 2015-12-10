@@ -1,9 +1,11 @@
 package main;
 
+import java.util.Arrays;
+
 public class Library {
 
 	Book[] books = new Book[100];
-	int nr = 0;
+	private int nr = 0;
 
 	public void addBook(Book b) {
 		books[nr] = b;
@@ -16,16 +18,17 @@ public class Library {
 		}
 	}
 
-	public void sortByAuthorName(String authorName) {
+	public void searchBook() {
 		for (int i = 0; i < this.nr; i++) {
-
-			if (authorName.equals(books[1])) {
-				System.out.println(books[1]);
-			}
+			String ddd = Arrays.toString(books);
 		}
 	}
-	
-	public void saveToFile(){
+
+	public int getNumberOfBooks() {
+		return this.nr;
+	}
+
+	public void saveToFile() {
 		for (int i = 0; i < this.nr; i++) {
 			System.out.println(books[i]);
 		}

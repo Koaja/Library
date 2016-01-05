@@ -3,7 +3,6 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 
 public class Main {
 	@SuppressWarnings("null")
@@ -12,7 +11,8 @@ public class Main {
 		Library library = new Library();
 		Book book;
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		PrintStream out = new PrintStream("C:\\Users\\Balea Cristian\\Desktop\\books3.txt");
+		// PrintStream out = new PrintStream("C:\\Users\\Balea
+		// Cristian\\Desktop\\books3.txt");
 
 		String[] line = null;
 		String search;

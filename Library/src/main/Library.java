@@ -19,8 +19,12 @@ public class Library {
 	public void searchBook(String text) {
 		for (int i = 0; i < this.nr; i++) {
 			String[] book = books[i].toString().split(" ");
-			if (book[i].equals(text)) {
-				System.out.println(books[i]);
+			for (int j = 0; j < book.length; j++) {
+				if (book[j].equalsIgnoreCase(text)) {
+					System.out.println(books[i]);
+				} else {
+					System.out.println("nothing found");
+				}
 			}
 		}
 	}

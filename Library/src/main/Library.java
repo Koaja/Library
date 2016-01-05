@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Arrays;
-
 public class Library {
 
 	Book[] books = new Book[100];
@@ -18,9 +16,12 @@ public class Library {
 		}
 	}
 
-	public void searchBook() {
+	public void searchBook(String text) {
 		for (int i = 0; i < this.nr; i++) {
-			String ddd = Arrays.toString(books);
+			String[] book = books[i].toString().split(" ");
+			if (book[i].equals(text)) {
+				System.out.println(books[i]);
+			}
 		}
 	}
 
@@ -30,7 +31,8 @@ public class Library {
 
 	public void saveToFile() {
 		for (int i = 0; i < this.nr; i++) {
-			System.out.println(books[i]);
+			System.out.println(i + "." + " " + books[i]);
 		}
+
 	}
 }

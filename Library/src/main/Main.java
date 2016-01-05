@@ -3,6 +3,7 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 
 public class Main {
 	@SuppressWarnings("null")
@@ -11,6 +12,7 @@ public class Main {
 		Library library = new Library();
 		Book book;
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		PrintStream out = new PrintStream("C:\\Users\\Balea Cristian\\Desktop\\books3.txt");
 
 		String[] line = null;
 		String search;
@@ -20,7 +22,8 @@ public class Main {
 			System.out.println("1. Add book");
 			System.out.println("2. Search");
 			System.out.println("3. List");
-			System.out.println("4. Quit");
+			System.out.println("4. Export library to file");
+			System.out.println("5. Quit");
 
 			System.out.print("Choose your action: ");
 			userMenuChoice = bf.readLine();
@@ -34,20 +37,26 @@ public class Main {
 				book = new Book(author, bookTitle);
 				library.addBook(book);
 
-				System.out.println("Book " + author + " - " + bookTitle + " was successfuly added");
+				System.out.println("Book " + author + " - " + bookTitle + " was successfuly added in your library.\n");
 			}
 			if (userMenuChoice.equals("2")) {
 				System.out.println("Type author or book title");
 				search = bf.readLine();
-				library.searchBook();
+				library.searchBook(search);
 			}
 
 			if (userMenuChoice.equals("3")) {
-				System.out.println("You currently have " + library.getNumberOfBooks() + " books in your library:");
 				library.showBook();
+
+				System.out.println();
+				System.out.println("You currently have " + library.getNumberOfBooks() + " books in your library:");
 			}
 
 			if (userMenuChoice.equals("4")) {
+
+			}
+
+			if (userMenuChoice.equals("5")) {
 				System.exit(0);
 			}
 		}

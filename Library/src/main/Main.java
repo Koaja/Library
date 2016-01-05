@@ -34,10 +34,15 @@ public class Main {
 				System.out.println("Enter Book Title");
 				String bookTitle = bf.readLine();
 
-				book = new Book(author, bookTitle);
-				library.addBook(book);
+				if (!author.isEmpty() && !bookTitle.isEmpty()) {
+					book = new Book(author, bookTitle);
+					library.addBook(book);
+					System.out.println(
+							"Book " + author + " - " + bookTitle + " was successfuly added in your library.\n");
+				} else {
+					System.out.println("Author or Title cannot be empty");
+				}
 
-				System.out.println("Book " + author + " - " + bookTitle + " was successfuly added in your library.\n");
 			}
 			if (userMenuChoice.equals("2")) {
 				System.out.println("Type author or book title");

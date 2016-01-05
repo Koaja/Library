@@ -17,15 +17,18 @@ public class Library {
 	}
 
 	public void searchBook(String text) {
+		boolean searchSuccessful = false;
 		for (int i = 0; i < this.nr; i++) {
 			String[] book = books[i].toString().split(" ");
 			for (int j = 0; j < book.length; j++) {
 				if (book[j].equalsIgnoreCase(text)) {
 					System.out.println(books[i]);
-				} else {
-					System.out.println("nothing found");
+					searchSuccessful = true;
 				}
 			}
+		}
+		if (searchSuccessful == false) {
+			System.out.println("nothing found");
 		}
 	}
 

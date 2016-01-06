@@ -18,24 +18,33 @@ public class Library {
 
 	public void searchBook(String text) {
 		boolean searchSuccessful = false;
+		// for (int i = 0; i < this.nr; i++) {
+		// // split book title and author
+		// String[] book = books[i].toString().split("-");
+		// System.out.println(book[i]);
+		// if (book[i].contains(text)) {
+		// System.out.println(books[i]);
+		// searchSuccessful = true;
+		// } else {
+		// for (int j = 0; j < book.length; j++) {
+		// // split book title and author into single words
+		// String[] words = book[j].split(" ");
+		// if (words[j].toLowerCase().contains(text)) {
+		// System.out.println(book[j]);
+		// searchSuccessful = true;
+		// }
+		// }
+		// }
+		// }
 		for (int i = 0; i < this.nr; i++) {
 			// split book title and author
-			String[] book = books[i].toString().split("-");
-			System.out.println(book[i]);
-			if (book[i].contains(text)) {
-				System.out.println(books[i]);
-				searchSuccessful = true;
-			} else {
-				for (int j = 0; j < book.length; j++) {
-					// split book title and author into single words
-					String[] words = book[j].split(" ");
-					if (words[j].toLowerCase().contains(text)) {
-						System.out.println(book[j]);
-						searchSuccessful = true;
-					}
-				}
+			String a = books[i].toString();
+			String b [] = a.split(" - ");
+			for(int j = 0; j < a.length(); j++){
+				System.out.println(b[i]);
 			}
 		}
+
 		if (searchSuccessful == false) {
 			System.out.println("nothing found");
 		}

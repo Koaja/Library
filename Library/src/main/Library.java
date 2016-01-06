@@ -19,11 +19,20 @@ public class Library {
 	public void searchBook(String text) {
 		boolean searchSuccessful = false;
 		for (int i = 0; i < this.nr; i++) {
-			String[] book = books[i].toString().split(" ");
-			for (int j = 0; j < book.length; j++) {
-				if (book[j].equalsIgnoreCase(text)) {
-					System.out.println(books[i]);
-					searchSuccessful = true;
+			// split book title and author
+			String[] book = books[i].toString().split("-");
+			System.out.println(book[i]);
+			if (book[i].contains(text)) {
+				System.out.println(books[i]);
+				searchSuccessful = true;
+			} else {
+				for (int j = 0; j < book.length; j++) {
+					// split book title and author into single words
+					String[] words = book[j].split(" ");
+					if (words[j].toLowerCase().contains(text)) {
+						System.out.println(book[j]);
+						searchSuccessful = true;
+					}
 				}
 			}
 		}
@@ -43,3 +52,15 @@ public class Library {
 
 	}
 }
+
+/*
+ * String string = "Ana are doice - multe sada mere"; String mere = "multe mere"
+ * ; String mere2 = "are"; String[] titlu = string.split(" - ");
+ * 
+ * for (int i = 0; i < titlu.length; i++) { String b = titlu[i]; if
+ * (b.contains(mere)) { System.out.println("yo"); } // System.out.println(b);
+ * for (int j = 0; j < titlu.length; j++) { String[] a = b.split(" "); if
+ * (a[j].equals(mere2)) { System.out.println("are ma"); } } }
+ * 
+ * }
+ */

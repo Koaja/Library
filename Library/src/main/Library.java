@@ -21,10 +21,12 @@ public class Library {
 		for (int i = 0; i < this.nr; i++) {
 			String[] book = books[i].toString().split(" - ");
 			for (int j = 0; j < book.length; j++) {
-				String[] words = book[j].split(" ");
-				if (words[j].toLowerCase().equals(text)) {
-					System.out.println(books[i]);
-					searchSuccessful = true;
+				String[] bookAndTitle = book[j].split(" ");
+				for (int k = 0; k < bookAndTitle.length; k++) {
+					if (bookAndTitle[k].toLowerCase().contains(text)) {
+						System.out.println(books[i]);
+						searchSuccessful = true;
+					}
 				}
 			}
 		}
@@ -39,9 +41,6 @@ public class Library {
 	}
 
 	public void saveToFile() {
-		for (int i = 0; i < this.nr; i++) {
-			System.out.println(i + "." + " " + books[i]);
-		}
 
 	}
 }

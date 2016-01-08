@@ -22,8 +22,9 @@ public class Main {
 			System.out.println("1. Add book");
 			System.out.println("2. Search");
 			System.out.println("3. List");
-			System.out.println("4. Export library to file");
-			System.out.println("5. Quit");
+			System.out.println("4. Export libray");
+			System.out.println("5. Import library");
+			System.out.println("6. Quit");
 
 			System.out.print("Choose your action: ");
 			userMenuChoice = bf.readLine();
@@ -58,10 +59,14 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("4")) {
-
+				// export library code
 			}
 
-			if (userMenuChoice.equals("5")) {
+			if (userMenuChoice.endsWith("5")) {
+				// import library code
+			}
+
+			if (userMenuChoice.equals("6")) {
 				System.exit(0);
 			}
 		}

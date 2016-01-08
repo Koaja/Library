@@ -40,7 +40,11 @@ public class Library {
 		return this.nr;
 	}
 
-	public void saveToFile() {
+	public void exportContacts() {
+
+	}
+
+	public void importContacts() {
 
 	}
 }

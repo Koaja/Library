@@ -1,6 +1,18 @@
 package main;
 
-public class Library {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class LibraryInteractions {
+
+	File booksLocaion;
+	BufferedReader readFile;
+	PrintStream writeToFile;
 
 	Book[] books = new Book[100];
 	private int nr = 0;
@@ -40,23 +52,23 @@ public class Library {
 		return this.nr;
 	}
 
-	public void exportContacts() {
+	public void exportLibrary() {
+		booksLocaion = new File(".\\..\\booksd.txt");
+		if (!booksLocaion.exists()) {
+			try {
+				booksLocaion.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			readFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksLocaion)));
+		} catch (FileNotFoundException e) {
 
+		}
 	}
 
-	public void importContacts() {
+	public void importLibrary() {
 
 	}
 }
-
-/*
- * String string = "Ana are doice - multe sada mere"; String mere = "multe mere"
- * ; String mere2 = "are"; String[] titlu = string.split(" - ");
- * 
- * for (int i = 0; i < titlu.length; i++) { String b = titlu[i]; if
- * (b.contains(mere)) { System.out.println("yo"); } // System.out.println(b);
- * for (int j = 0; j < titlu.length; j++) { String[] a = b.split(" "); if
- * (a[j].equals(mere2)) { System.out.println("are ma"); } } }
- * 
- * }
- */

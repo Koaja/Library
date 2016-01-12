@@ -8,11 +8,10 @@ public class Main {
 	@SuppressWarnings("null")
 	public static void main(String[] args) throws IOException {
 
-		Library library = new Library();
+		LibraryInteractions library = new LibraryInteractions();
 		Book book;
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		// PrintStream out = new PrintStream("C:\\Users\\Balea
-		// Cristian\\Desktop\\books3.txt");
+		
 
 		String[] line = null;
 		String search;
@@ -59,7 +58,7 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("4")) {
-				// export library code
+				library.exportLibrary();
 			}
 
 			if (userMenuChoice.endsWith("5")) {

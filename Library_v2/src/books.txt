@@ -1,41 +1,42 @@
 Agatha Christie - O crima anuntata - Crime/Thriller
 Alan Butler & Stephen Dafoe - Cavalerii Templieri: Misterul Dezvaluit - History
-Arthur Clarke - Rendez-vous cu Rama - SF
 Arthur Clarke - 2001: Odiseea Spatiala - SF
 Arthur Clarke - 2010: A doua Odisee - SF
 Arthur Clarke - 2061: A treia Odisee - SF
 Arthur Clarke - 3001: Odiseea Finala - SF
+Arthur Clarke - Rendez-vous cu Rama - SF
 Arthur Clarke - Sfarsitul Copilariei - SF
 Bob Bates - Game Design - Science
 Clare Gibson - Cum sa citim simbolurile - Science
 Dante Alighieri - Divina Comedie - Poetry
+dasda - dasdasda - dsada
 Douglas Adams - Ghidul Autostopistului Galactic - SF
 Eric Nylund - Halo: The Fall of Reach - SF
 Erik Bethke - Game Development and Production - Science
 F.M. Dostoievski - Crima si Pedeapsa - Crime/Drama
 Franz Kafka - Procesul - Philosophy
 H.G. Wells - Insula Doctorului Moreau - Horror
-H.P. Lovecraft - Necronomicon - Horror
 H.P. Lovecraft - Chemarea lui Cthulhu - Horror
+H.P. Lovecraft - Necronomicon - Horror
+Isaac Asimov - Fundatia - SF
+Isaac Asimov - I, Robot - SF
+Isaac Asimov - Imperiul: O piatra pe Cer - SF
+Isaac Asimov - Imperiul: Praf de Stele - SF
 Isaac Asimov - The Caves of Steel - SF
 Isaac Asimov - The Naked Sun - SF
-Isaac Asimov - I, Robot - SF
-Isaac Asimov - Imperiul: Praf de Stele - SF
-Isaac Asimov - Imperiul: O piatra pe Cer - SF
-Isaac Asimov - Fundatia - SF
 Jean Claude Carriere - Povestiri filosofice din lumea intreaga - Philosophy
 Karen Ralls - Enciclopedia Cavalerilor Templieri - History
 Katharine Kerr - The Spirit Stone - Fantasy
-Kobo Abe - Chip strain - Drama
 Kobo Abe - Barbatul Cutie - Drama
+Kobo Abe - Chip strain - Drama
 LucasFilm - Star Wars: Book of Sith - SF
 Lynn Picknett & Clive Prince - Misterul Templierilor - History
 Marilyn Hopkins	Enigma - Cavalerilor Templieri - History
 Mauro Raccasi - Luptatorul de la Stonehenge - Drama
 Peter Berresford Ellis - The Druids - History
 Peter Berresford Ellis - The Mammoth book of Celtic Myths & Legends - Myths
-Ray Kurzweil - Epoca Masinilor Spirituale - Science
 Ray Kurzweil - Cum se construieste o minte - Science
+Ray Kurzweil - Epoca Masinilor Spirituale - Science
 Raymond Khoury - Ultimul Templier - Drama
 Regine Pernoud - Templierii - Cavalerii lui Christos
 Richard A. Knaak - Warcraft: War of the Ancients:The Sundering - Fantasy

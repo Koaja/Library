@@ -16,7 +16,7 @@ public class LibraryInteractions {
 
 	BufferedReader readBooksFromFile;
 	PrintStream writeBooksToFile;
-	File booksFile = new File("C:\\Users\\Balea Cristian\\Downloads\\books.txt");
+	File booksFile = new File("src/books.txt");
 
 	public void addBook(Book b) {
 		books.add(b);

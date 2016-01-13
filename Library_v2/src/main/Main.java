@@ -8,6 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		LibraryInteractions lib = new LibraryInteractions();
+		lib.importBooks();
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		Book book;
 
@@ -19,7 +20,7 @@ public class Main {
 			System.out.println("2. Search");
 			System.out.println("3. List");
 			System.out.println("4. Export libray");
-			System.out.println("5. Import library");
+			System.out.println("5. Sort library");
 			System.out.println("6. Quit");
 
 			System.out.print("Choose your action: ");
@@ -72,11 +73,11 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("5")) {
-				lib.importBooks();
+				lib.sortBooks();
 			}
 
 			if (userMenuChoice.equals("6")) {
-				lib.sortBooks();
+				System.exit(0);
 			}
 		}
 

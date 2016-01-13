@@ -55,34 +55,28 @@ public class LibraryInteractions {
 			}
 
 		});
+		System.out.println("Your list has been sorted!\n");
 	}
 
 	public void importBooks() {
 		try {
 			readBooksFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksFile)));
-			if (!booksFile.exists()) {
-				booksFile.createNewFile();
-			} else {
-				String line = "";
-				Book b;
-				while ((line = readBooksFromFile.readLine()) != null) {
-					String[] s = line.split(" - ");
-					String bookAuthor = s[0];
-					String bookTitle = s[1];
-					String bookGenre = s[2];
-					b = new Book(bookAuthor, bookTitle, bookGenre);
-					this.addBook(b);
-				}
+
+			String line = "";
+			Book b;
+			while ((line = readBooksFromFile.readLine()) != null) {
+				String[] s = line.split(" - ");
+				String bookAuthor = s[0];
+				String bookTitle = s[1];
+				String bookGenre = s[2];
+				b = new Book(bookAuthor, bookTitle, bookGenre);
+				this.addBook(b);
 			}
 
 		} catch (IOException e) {
-			try {
-				booksFile.createNewFile();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
 
 		}
+
 	}
 
 	public void exportBooks() {
@@ -95,7 +89,6 @@ public class LibraryInteractions {
 				writeBooksToFile.println(book);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

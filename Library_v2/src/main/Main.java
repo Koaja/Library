@@ -8,8 +8,11 @@ public class Main {
 	public static void main(String[] args) {
 
 		LibraryInteractions lib = new LibraryInteractions();
+		// imports existing book
 		lib.importBooks();
+
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
 		Book book;
 
 		String[] line = null;
@@ -29,25 +32,29 @@ public class Main {
 				if (userMenuChoice.equals("1")) {
 					System.out.print("Enter Book Author: ");
 					String bookAuthor = bf.readLine();
+					Check check = new Check();
+					check.fixSubmission(bookAuthor);
 
 					System.out.print("Enter Book Title: ");
 					String bookTitle = bf.readLine();
+					check.fixSubmission(bookTitle);
 
 					System.out.print("Enter Book Genre: ");
 					String bookGenre = bf.readLine();
 
-					if (!bookAuthor.isEmpty() && !bookTitle.isEmpty()) {
+					// check whether any of the strings are empty then adds them
+					// in the book list
+					if (!bookAuthor.isEmpty() && !bookTitle.isEmpty() && !bookGenre.isEmpty()) {
 						book = new Book(bookAuthor, bookTitle, bookGenre);
 						lib.addBook(book);
-						System.out.println(
-								"Book " + bookAuthor + " - " + bookTitle + " was successfuly added in your library.\n");
+						System.out.println("Book '" + bookAuthor + " - " + bookTitle + bookGenre
+								+ "' was successfuly added in your library.\n");
 					} else {
 						System.out.println("Author or Title cannot be empty");
 					}
 
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if (userMenuChoice.equals("2")) {
@@ -63,9 +70,7 @@ public class Main {
 
 			if (userMenuChoice.equals("3")) {
 				lib.showBooks();
-
-				System.out.println();
-				System.out.println("You currently have " + lib.getNumberOfBooks() + " books in your library:");
+				System.out.println("\nYou currently have " + lib.getNumberOfBooks() + " books in your library:");
 			}
 
 			if (userMenuChoice.equals("4")) {

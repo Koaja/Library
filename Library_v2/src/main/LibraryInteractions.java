@@ -16,7 +16,7 @@ public class LibraryInteractions {
 
 	BufferedReader readBooksFromFile;
 	PrintStream writeBooksToFile;
-	File booksFile = new File("src/books.txt");
+	File booksFile = new File("src/main/books.txt");
 
 	public void addBook(Book b) {
 		books.add(b);
@@ -31,7 +31,7 @@ public class LibraryInteractions {
 	public void searchBook(String text) {
 		boolean searchSuccessful = false;
 		for (Book book : books) {
-			if (book.toString().contains(text)) {
+			if (book.toString().toLowerCase().contains(text)) {
 				System.out.println(book);
 				searchSuccessful = true;
 			}

@@ -34,11 +34,11 @@ public class Main {
 					System.out.print("Enter Book Author: ");
 					String bookAuthor = bf.readLine();
 					Check check = new Check();
-					check.fixSubmission(bookAuthor);
+					// check.fixSubmission(bookAuthor);
 
 					System.out.print("Enter Book Title: ");
 					String bookTitle = bf.readLine();
-					check.fixSubmission(bookTitle);
+					// check.fixSubmission(bookTitle);
 
 					System.out.print("Enter Book Genre: ");
 					String bookGenre = bf.readLine();
@@ -46,7 +46,7 @@ public class Main {
 					// check whether any of the strings are empty then adds them
 					// in the book list
 					if (!bookAuthor.isEmpty() && !bookTitle.isEmpty() && !bookGenre.isEmpty()) {
-						book = new Book(bookAuthor, bookTitle, bookGenre);
+						book = new Book(bookAuthor.toLowerCase(), bookTitle.toLowerCase(), bookGenre.toLowerCase());
 						lib.addBook(book);
 						System.out.println("Book '" + bookAuthor + " - " + bookTitle + " - " + bookGenre
 								+ "' was successfuly added in your library.\n");
@@ -75,7 +75,7 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("4")) {
-				lib.exportBooks();
+				lib.exportBooks(false);
 			}
 
 			if (userMenuChoice.equals("5")) {
@@ -83,7 +83,7 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("6")) {
-				System.exit(0);
+				lib.exitLibrary();
 			}
 		}
 

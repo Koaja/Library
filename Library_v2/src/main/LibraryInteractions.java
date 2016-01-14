@@ -77,12 +77,12 @@ public class LibraryInteractions {
 			}
 
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}
 
 	}
 
-	public void exportBooks() {
+	public void exportBooks(boolean saveAndExit) {
 
 		booksFile.delete();
 		try {
@@ -94,5 +94,15 @@ public class LibraryInteractions {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		if (saveAndExit == true) {
+			System.out.println("Library has been updated. You can safely exit the library.");
+		} else {
+			System.out.println("Library has been updated.");
+		}
+
+	}
+
+	public void exitLibrary() {
+
 	}
 }

@@ -8,8 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 
 		LibraryInteractions lib = new LibraryInteractions();
+		String homeDir = System.getProperty("user.home");
 		// imports existing book
-		lib.importBooks();
+		lib.importBooks(homeDir + "//Desktop//books.txt");
 
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -47,7 +48,7 @@ public class Main {
 					if (!bookAuthor.isEmpty() && !bookTitle.isEmpty() && !bookGenre.isEmpty()) {
 						book = new Book(bookAuthor, bookTitle, bookGenre);
 						lib.addBook(book);
-						System.out.println("Book '" + bookAuthor + " - " + bookTitle + bookGenre
+						System.out.println("Book '" + bookAuthor + " - " + bookTitle + " - " + bookGenre
 								+ "' was successfuly added in your library.\n");
 					} else {
 						System.out.println("Author or Title cannot be empty");

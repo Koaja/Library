@@ -16,7 +16,8 @@ public class LibraryInteractions {
 
 	BufferedReader readBooksFromFile;
 	PrintStream writeBooksToFile;
-	File booksFile = new File("src/main/books.txt");
+
+	File booksFile;
 
 	public void addBook(Book b) {
 		books.add(b);
@@ -30,13 +31,14 @@ public class LibraryInteractions {
 
 	public void searchBook(String text) {
 		boolean searchSuccessful = false;
-		for (Book book : books) {
-			if (book.toString().toLowerCase().contains(text)) {
-				System.out.println(book);
-				searchSuccessful = true;
+		if (text.length() >= 3) {
+			for (Book book : books) {
+				if (book.toString().toLowerCase().contains(text)) {
+					System.out.println(book);
+					searchSuccessful = true;
+				}
 			}
 		}
-
 		if (searchSuccessful == false) {
 			System.out.println("No matches were found");
 		}
@@ -58,7 +60,8 @@ public class LibraryInteractions {
 		System.out.println("Your list has been sorted!\n");
 	}
 
-	public void importBooks() {
+	public void importBooks(String location) {
+		booksFile = new File(location);
 		try {
 			readBooksFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksFile)));
 

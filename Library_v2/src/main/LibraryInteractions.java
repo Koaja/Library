@@ -60,8 +60,8 @@ public class LibraryInteractions {
 		System.out.println("Your list has been sorted!\n");
 	}
 
-	public void importBooks(String location) {
-		booksFile = new File(location);
+	public void importBooks(String fileLocation) {
+		booksFile = new File(fileLocation);
 		try {
 			readBooksFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksFile)));
 
@@ -94,6 +94,7 @@ public class LibraryInteractions {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		if (saveAndExit == true) {
 			System.out.println("Library has been updated. You can safely exit the library.");
 		} else {
@@ -103,6 +104,7 @@ public class LibraryInteractions {
 	}
 
 	public void exitLibrary() {
-
+		System.exit(0);
+		System.out.println("Good Day!");
 	}
 }

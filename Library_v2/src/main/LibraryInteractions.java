@@ -3,6 +3,7 @@ package main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -12,44 +13,50 @@ import java.util.Comparator;
 
 public class LibraryInteractions {
 
-	ArrayList<Book> books = new ArrayList<>();
+	ArrayList<Book> booksCollections = new ArrayList<>();
 
 	BufferedReader readBooksFromFile;
+	BufferedReader input;
 	PrintStream writeBooksToFile;
-
 	File booksFile;
 
-	public void addBook(Book b) {
-		books.add(b);
+	public void addBookToLibrary(Book b) {
+		booksCollections.add(b);
 	}
 
-	public void showBooks() {
-		for (Book book : books) {
+	public void showBooksPresentInLibrary() {
+		for (Book book : booksCollections) {
 			System.out.println(book);
 		}
 	}
 
-	public void searchBook(String text) {
+	/**
+	 * 
+	 * @param searchString
+	 *            string to be searched for in array
+	 */
+	public void searchLibrary(String searchString) {
 		boolean searchSuccessful = false;
-		if (text.length() >= 3) {
-			for (Book book : books) {
-				if (book.toString().toLowerCase().contains(text)) {
+		if (searchString.length() >= 3) {
+			for (Book book : booksCollections) {
+				if (book.toString().toLowerCase().contains(searchString)) {
 					System.out.println(book);
 					searchSuccessful = true;
 				}
 			}
 		}
+
 		if (searchSuccessful == false) {
 			System.out.println("No matches were found");
 		}
 	}
 
 	public int getNumberOfBooks() {
-		return books.size();
+		return booksCollections.size();
 	}
 
 	public void sortBooks() {
-		Collections.sort(books, new Comparator<Book>() {
+		Collections.sort(booksCollections, new Comparator<Book>() {
 
 			@Override
 			public int compare(Book o1, Book o2) {
@@ -57,7 +64,7 @@ public class LibraryInteractions {
 			}
 
 		});
-		System.out.println("Your list has been sorted!\n");
+		System.out.println("/nYour list has been sorted!\n");
 	}
 
 	public void importBooks(String fileLocation) {
@@ -73,7 +80,7 @@ public class LibraryInteractions {
 				String bookTitle = s[1];
 				String bookGenre = s[2];
 				b = new Book(bookAuthor, bookTitle, bookGenre);
-				this.addBook(b);
+				addBookToLibrary(b);
 			}
 
 		} catch (IOException e) {
@@ -82,13 +89,13 @@ public class LibraryInteractions {
 
 	}
 
-	public void exportBooks(boolean saveAndExit) {
+	public void saveLibrary(boolean saveAndExit) {
 
 		booksFile.delete();
 		try {
 			booksFile.createNewFile();
 			writeBooksToFile = new PrintStream(booksFile);
-			for (Book book : books) {
+			for (Book book : booksCollections) {
 				writeBooksToFile.println(book);
 			}
 		} catch (IOException e) {
@@ -103,8 +110,42 @@ public class LibraryInteractions {
 
 	}
 
-	public void exitLibrary() {
-		System.exit(0);
-		System.out.println("Good Day!");
+	public boolean isLibraryUpToDate() {
+
+		int amountOfBooksInCollection = booksCollections.size();
+		int amountOfBooksInFile = 0;
+		try {
+			readBooksFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksFile)));
+			while (readBooksFromFile.readLine() != null) {
+				amountOfBooksInFile++;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return amountOfBooksInCollection == amountOfBooksInFile;
+	}
+
+	public void exitLibrary(String userChoice) {
+		input = new BufferedReader(new InputStreamReader(System.in));
+		if (isLibraryUpToDate()) {
+			System.out.println("Your library is up-to-date. Have a good day!");
+			System.exit(0);
+		} else {
+			System.out.println("Your Library is not up-to-date. Would you like to update it now ?");
+			try {
+				userChoice = input.readLine();
+				if (userChoice.toLowerCase().equals("yes")) {
+					saveLibrary(true);
+				} else if (userChoice.toLowerCase().equals("no")) {
+					System.out.println("Your library was not updated.");
+					System.exit(0);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

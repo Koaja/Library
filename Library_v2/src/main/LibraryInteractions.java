@@ -72,6 +72,7 @@ public class LibraryInteractions {
 
 		if (!booksFile.exists()) {
 			try {
+				System.out.println("\nNo local library was found, so we created one instead.\n");
 				booksFile.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -116,6 +117,10 @@ public class LibraryInteractions {
 		} else {
 			System.out.println("Library has been updated.");
 		}
+
+	}
+
+	public void editBooks() {
 
 	}
 

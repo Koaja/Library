@@ -64,11 +64,20 @@ public class LibraryInteractions {
 			}
 
 		});
-		System.out.println("/nYour list has been sorted!\n");
+		System.out.println("\nYour list has been sorted!\n");
 	}
 
 	public void importBooks(String fileLocation) {
 		booksFile = new File(fileLocation);
+
+		if (!booksFile.exists()) {
+			try {
+				booksFile.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		try {
 			readBooksFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(booksFile)));
 
@@ -134,7 +143,7 @@ public class LibraryInteractions {
 			System.out.println("Your library is up-to-date. Have a good day!");
 			System.exit(0);
 		} else {
-			System.out.println("Your Library is not up-to-date. Would you like to update it now ?");
+			System.out.println("Your Library is not up-to-date. Would you like to update it now ?[yes/no]");
 			try {
 				userChoice = input.readLine();
 				if (userChoice.toLowerCase().equals("yes")) {

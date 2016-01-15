@@ -140,7 +140,7 @@ public class LibraryInteractions {
 				if (userChoice.toLowerCase().equals("yes")) {
 					saveLibrary(true);
 				} else if (userChoice.toLowerCase().equals("no")) {
-					System.out.println("Your library was not updated.");
+					System.out.println("Your library was not updated. Have a good day!");
 					System.exit(0);
 				}
 			} catch (IOException e) {

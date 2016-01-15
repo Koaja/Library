@@ -15,18 +15,20 @@ public class LibraryInteractions {
 
 	ArrayList<Book> booksCollections = new ArrayList<>();
 
-	BufferedReader readBooksFromFile;
-	BufferedReader input;
-	PrintStream writeBooksToFile;
-	File booksFile;
+	private BufferedReader readBooksFromFile;
+	private BufferedReader input;
+	private PrintStream writeBooksToFile;
+	private File booksFile;
 
 	public void addBookToLibrary(Book b) {
 		booksCollections.add(b);
 	}
 
 	public void showBooksPresentInLibrary() {
+		int index = 1;
 		for (Book book : booksCollections) {
-			System.out.println(book);
+			System.out.println(index + ". " + book);
+			index++;
 		}
 	}
 
@@ -120,8 +122,20 @@ public class LibraryInteractions {
 
 	}
 
-	public void editBooks() {
-
+	public void editBook(Book b) {
+		Book cal = null;
+		System.out.println("Get book id: ");
+		input = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String bookID = input.readLine();
+			cal = booksCollections.get(Integer.parseInt(bookID));
+			System.out.println(bookID);
+			booksCollections.set(1 - Integer.parseInt(bookID), b);
+			System.out.println(Integer.parseInt(bookID));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(cal.toString() + " has been replaced with : ");
 	}
 
 	public boolean isLibraryUpToDate() {

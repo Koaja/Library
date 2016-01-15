@@ -79,6 +79,26 @@ public class Main {
 				lib.sortBooks();
 			}
 
+			if (userMenuChoice.equals("7")) {
+				try {
+					System.out.print("Enter Book Author: ");
+					String bookAuthor = bf.readLine();
+
+					System.out.print("Enter Book Title: ");
+					String bookTitle = bf.readLine();
+
+					System.out.print("Enter Book Genre: ");
+					String bookGenre = bf.readLine();
+					book = new Book(bookAuthor, bookTitle, bookGenre);
+
+					lib.editBook(book);
+
+					System.out.println(bookAuthor + " - " + bookTitle + " - " + bookGenre);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
 			if (userMenuChoice.equals("6")) {
 				lib.exitLibrary(userExitChoice);
 			}

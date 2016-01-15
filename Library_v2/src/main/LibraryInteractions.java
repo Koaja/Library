@@ -20,10 +20,19 @@ public class LibraryInteractions {
 	private PrintStream writeBooksToFile;
 	private File booksFile;
 
+	/**
+	 * 
+	 * @param b
+	 *            adds a new book in library in the format
+	 *            "Author - Title - GENRE"
+	 */
 	public void addBookToLibrary(Book b) {
 		booksCollections.add(b);
 	}
 
+	/**
+	 * Lists all books present in library
+	 */
 	public void showBooksPresentInLibrary() {
 		int index = 1;
 		for (Book book : booksCollections) {
@@ -53,9 +62,17 @@ public class LibraryInteractions {
 		}
 	}
 
+	/**
+	 * 
+	 * @return number of books
+	 */
 	public int getNumberOfBooks() {
 		return booksCollections.size();
 	}
+
+	/**
+	 * Sorts the books alphabetically
+	 */
 
 	public void sortBooks() {
 		Collections.sort(booksCollections, new Comparator<Book>() {
@@ -68,6 +85,12 @@ public class LibraryInteractions {
 		});
 		System.out.println("\nYour list has been sorted!\n");
 	}
+
+	/**
+	 * 
+	 * @param fileLocation
+	 *            - local user director from which the import is made
+	 */
 
 	public void importBooks(String fileLocation) {
 		booksFile = new File(fileLocation);
@@ -101,6 +124,11 @@ public class LibraryInteractions {
 
 	}
 
+	/**
+	 * 
+	 * @param saveAndExit
+	 *            different message is displayed depending on boolean value
+	 */
 	public void saveLibrary(boolean saveAndExit) {
 
 		booksFile.delete();
@@ -122,6 +150,11 @@ public class LibraryInteractions {
 
 	}
 
+	/**
+	 * 
+	 * @param b
+	 *            - adds a book at an index decided by the user
+	 */
 	public void editBook(Book b) {
 		Book parsedBookID = null;
 		System.out.println("Get book id: ");
@@ -135,6 +168,16 @@ public class LibraryInteractions {
 		}
 		System.out.println(parsedBookID.toString() + " has been replaced with : ");
 	}
+
+	public void deleteBook(int bookID) {
+		booksCollections.remove(bookID);
+	}
+
+	/**
+	 * 
+	 * @return boolean - if the number of lines in file is equal to the size of
+	 *         the list
+	 */
 
 	public boolean isLibraryUpToDate() {
 
@@ -154,6 +197,11 @@ public class LibraryInteractions {
 		return amountOfBooksInCollection == amountOfBooksInFile;
 	}
 
+	/**
+	 * 
+	 * @param userChoice
+	 *            - input from user deciding if user wants to update library
+	 */
 	public void exitLibrary(String userChoice) {
 		input = new BufferedReader(new InputStreamReader(System.in));
 		if (isLibraryUpToDate()) {

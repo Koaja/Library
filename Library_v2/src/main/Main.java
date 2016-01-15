@@ -79,6 +79,17 @@ public class Main {
 				lib.sortBooks();
 			}
 
+			if (userMenuChoice.equals("8")) {
+				System.out.println("Which book do you wish to delete: ");
+				String bookID;
+				try {
+					bookID = bf.readLine();
+					lib.deleteBook(Integer.parseInt(bookID));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
 			if (userMenuChoice.equals("7")) {
 				try {
 					System.out.print("Enter Book Author: ");

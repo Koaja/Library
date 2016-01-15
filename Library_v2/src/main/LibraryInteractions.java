@@ -123,19 +123,17 @@ public class LibraryInteractions {
 	}
 
 	public void editBook(Book b) {
-		Book cal = null;
+		Book parsedBookID = null;
 		System.out.println("Get book id: ");
 		input = new BufferedReader(new InputStreamReader(System.in));
 		try {
 			String bookID = input.readLine();
-			cal = booksCollections.get(Integer.parseInt(bookID));
-			System.out.println(bookID);
+			parsedBookID = booksCollections.get(Integer.parseInt(bookID));
 			booksCollections.set(1 - Integer.parseInt(bookID), b);
-			System.out.println(Integer.parseInt(bookID));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(cal.toString() + " has been replaced with : ");
+		System.out.println(parsedBookID.toString() + " has been replaced with : ");
 	}
 
 	public boolean isLibraryUpToDate() {

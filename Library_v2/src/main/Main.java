@@ -31,6 +31,8 @@ public class Main {
 			System.out.println("8. Quit");
 
 			System.out.print("Choose your action: ");
+
+			// add book
 			try {
 				userMenuChoice = bf.readLine();
 				if (userMenuChoice.equals("1")) {
@@ -58,6 +60,7 @@ public class Main {
 				e.printStackTrace();
 			}
 
+			// edit book
 			if (userMenuChoice.equals("2")) {
 				try {
 					System.out.print("Enter Book Author: ");
@@ -78,6 +81,7 @@ public class Main {
 				}
 			}
 
+			// delete book
 			if (userMenuChoice.equals("3")) {
 				System.out.println("Which book do you wish to delete: ");
 				String bookID;
@@ -89,15 +93,18 @@ public class Main {
 				}
 			}
 
+			// list library
 			if (userMenuChoice.equals("4")) {
 				lib.listLibrary();
 				System.out.println("\nYou currently have " + lib.getNumberOfBooks() + " books in your library:");
 			}
 
+			// sort library
 			if (userMenuChoice.equals("5")) {
 				lib.sortLibrary();
 			}
 
+			// search library
 			if (userMenuChoice.equals("6")) {
 				System.out.print("Type author or book title: ");
 				try {
@@ -107,11 +114,12 @@ public class Main {
 					e.printStackTrace();
 				}
 			}
-
+			// export library
 			if (userMenuChoice.equals("7")) {
 				lib.exportLibrary(false);
 			}
 
+			// exit library
 			if (userMenuChoice.equals("8")) {
 				lib.exitLibrary();
 			}

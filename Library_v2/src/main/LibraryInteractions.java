@@ -153,7 +153,7 @@ public class LibraryInteractions {
 	/**
 	 * 
 	 * @param b
-	 *            - adds a book at an index decided by the user
+	 *            - edits a book at an index decided by the user
 	 */
 	public void editBook(Book b) {
 
@@ -177,7 +177,7 @@ public class LibraryInteractions {
 	/**
 	 * 
 	 * @return boolean - if the number of lines in file is equal to the size of
-	 *         the list
+	 *         the list returns true
 	 */
 
 	public boolean isLibraryUpToDate() {

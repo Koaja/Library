@@ -19,7 +19,6 @@ public class Main {
 
 		String search;
 		String userMenuChoice = "";
-		String userExitChoice = "";
 		while (true) {
 			System.out.println("1. Add book");
 			System.out.println("2. Edit book");

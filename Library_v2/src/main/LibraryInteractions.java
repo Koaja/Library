@@ -26,14 +26,14 @@ public class LibraryInteractions {
 	 *            adds a new book in library in the format
 	 *            "Author - Title - GENRE"
 	 */
-	public void addBookToLibrary(Book b) {
+	public void addBook(Book b) {
 		booksCollections.add(b);
 	}
 
 	/**
 	 * Lists all books present in library
 	 */
-	public void showBooksPresentInLibrary() {
+	public void listLibrary() {
 		int index = 1;
 		for (Book book : booksCollections) {
 			System.out.println(index + ". " + book);
@@ -74,7 +74,7 @@ public class LibraryInteractions {
 	 * Sorts the books alphabetically
 	 */
 
-	public void sortBooks() {
+	public void sortLibrary() {
 		Collections.sort(booksCollections, new Comparator<Book>() {
 
 			@Override
@@ -92,7 +92,7 @@ public class LibraryInteractions {
 	 *            - local user director from which the import is made
 	 */
 
-	public void importBooks(String fileLocation) {
+	public void importLibrary(String fileLocation) {
 		booksFile = new File(fileLocation);
 
 		if (!booksFile.exists()) {
@@ -115,7 +115,7 @@ public class LibraryInteractions {
 				String bookTitle = s[1];
 				String bookGenre = s[2];
 				b = new Book(bookAuthor, bookTitle, bookGenre);
-				addBookToLibrary(b);
+				addBook(b);
 			}
 
 		} catch (IOException e) {
@@ -129,7 +129,7 @@ public class LibraryInteractions {
 	 * @param saveAndExit
 	 *            different message is displayed depending on boolean value
 	 */
-	public void saveLibrary(boolean saveAndExit) {
+	public void exportLibrary(boolean saveAndExit) {
 
 		booksFile.delete();
 		try {
@@ -203,7 +203,8 @@ public class LibraryInteractions {
 	 * @param userChoice
 	 *            - input from user deciding if user wants to update library
 	 */
-	public void exitLibrary(String userChoice) {
+	public void exitLibrary() {
+		String userChoice = "";
 		input = new BufferedReader(new InputStreamReader(System.in));
 		if (isLibraryUpToDate()) {
 			System.out.println("Your library is up-to-date. Have a good day!");
@@ -213,7 +214,7 @@ public class LibraryInteractions {
 			try {
 				userChoice = input.readLine();
 				if (userChoice.toLowerCase().equals("yes")) {
-					saveLibrary(true);
+					exportLibrary(true);
 				} else if (userChoice.toLowerCase().equals("no")) {
 					System.out.println("Your library was not updated. Have a good day!");
 					System.exit(0);

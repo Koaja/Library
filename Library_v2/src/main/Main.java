@@ -11,7 +11,7 @@ public class Main {
 		String homeDir = System.getProperty("user.home");
 
 		// imports existing books
-		lib.importBooks(homeDir + "//Desktop//books.txt");
+		lib.importLibrary(homeDir + "//Desktop//books.txt");
 
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -22,12 +22,12 @@ public class Main {
 		String userExitChoice = "";
 		while (true) {
 			System.out.println("1. Add book");
-			System.out.println("2. Search");
-			System.out.println("3. List");
-			System.out.println("4. Export libray");
+			System.out.println("2. Edit book");
+			System.out.println("3. Delete book");
+			System.out.println("4. List library");
 			System.out.println("5. Sort library");
-			System.out.println("6. Edit Book");
-			System.out.println("7. Delete Book");
+			System.out.println("6. Search library");
+			System.out.println("7. Export library");
 			System.out.println("8. Quit");
 
 			System.out.print("Choose your action: ");
@@ -47,7 +47,7 @@ public class Main {
 					// in the book list
 					if (!bookAuthor.isEmpty() && !bookTitle.isEmpty() && !bookGenre.isEmpty()) {
 						book = new Book(bookAuthor, bookTitle, bookGenre);
-						lib.addBookToLibrary(book);
+						lib.addBook(book);
 						System.out.println("Book '" + bookAuthor + " - " + bookTitle + " - " + bookGenre
 								+ "' was successfuly added in your library.\n");
 					} else {
@@ -59,40 +59,6 @@ public class Main {
 			}
 
 			if (userMenuChoice.equals("2")) {
-				System.out.print("Type author or book title: ");
-				try {
-					search = bf.readLine();
-					lib.searchLibrary(search);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (userMenuChoice.equals("3")) {
-				lib.showBooksPresentInLibrary();
-				System.out.println("\nYou currently have " + lib.getNumberOfBooks() + " books in your library:");
-			}
-
-			if (userMenuChoice.equals("4")) {
-				lib.saveLibrary(false);
-			}
-
-			if (userMenuChoice.equals("5")) {
-				lib.sortBooks();
-			}
-
-			if (userMenuChoice.equals("6")) {
-				System.out.println("Which book do you wish to delete: ");
-				String bookID;
-				try {
-					bookID = bf.readLine();
-					lib.deleteBook(Integer.parseInt(bookID));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (userMenuChoice.equals("7")) {
 				try {
 					System.out.print("Enter Book Author: ");
 					String bookAuthor = bf.readLine();
@@ -112,8 +78,42 @@ public class Main {
 				}
 			}
 
+			if (userMenuChoice.equals("3")) {
+				System.out.println("Which book do you wish to delete: ");
+				String bookID;
+				try {
+					bookID = bf.readLine();
+					lib.deleteBook(Integer.parseInt(bookID));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (userMenuChoice.equals("4")) {
+				lib.listLibrary();
+				System.out.println("\nYou currently have " + lib.getNumberOfBooks() + " books in your library:");
+			}
+
+			if (userMenuChoice.equals("5")) {
+				lib.sortLibrary();
+			}
+
+			if (userMenuChoice.equals("6")) {
+				System.out.print("Type author or book title: ");
+				try {
+					search = bf.readLine();
+					lib.searchLibrary(search);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (userMenuChoice.equals("7")) {
+				lib.exportLibrary(false);
+			}
+
 			if (userMenuChoice.equals("8")) {
-				lib.exitLibrary(userExitChoice);
+				lib.exitLibrary();
 			}
 		}
 

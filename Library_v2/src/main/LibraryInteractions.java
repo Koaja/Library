@@ -156,8 +156,9 @@ public class LibraryInteractions {
 	 *            - adds a book at an index decided by the user
 	 */
 	public void editBook(Book b) {
+
 		Book parsedBookID = null;
-		System.out.println("Get book id: ");
+		System.out.println("Enter book number you wish to delete: ");
 		input = new BufferedReader(new InputStreamReader(System.in));
 		try {
 			String bookID = input.readLine();

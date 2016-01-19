@@ -6,5 +6,4 @@ public class Book extends BookGenre {
 		super(bookAuthor, bookTitle, bookGenre.toUpperCase());
 
 	}
-
 }

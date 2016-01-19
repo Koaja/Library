@@ -26,7 +26,9 @@ public class Main {
 			System.out.println("3. List");
 			System.out.println("4. Export libray");
 			System.out.println("5. Sort library");
-			System.out.println("6. Quit");
+			System.out.println("6. Edit Book");
+			System.out.println("7. Delete Book");
+			System.out.println("8. Quit");
 
 			System.out.print("Choose your action: ");
 			try {
@@ -79,7 +81,7 @@ public class Main {
 				lib.sortBooks();
 			}
 
-			if (userMenuChoice.equals("8")) {
+			if (userMenuChoice.equals("6")) {
 				System.out.println("Which book do you wish to delete: ");
 				String bookID;
 				try {
@@ -110,7 +112,7 @@ public class Main {
 				}
 			}
 
-			if (userMenuChoice.equals("6")) {
+			if (userMenuChoice.equals("8")) {
 				lib.exitLibrary(userExitChoice);
 			}
 		}
